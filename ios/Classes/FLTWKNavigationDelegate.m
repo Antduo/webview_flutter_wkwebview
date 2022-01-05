@@ -25,9 +25,10 @@
 - (void)webView:(WKWebView *)webView
     decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
                     decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+
    NSURL *url = navigationAction.request.URL;
    NSString *reqUrl = url.absoluteString;
-   //    NSLog(@"-url---- %@",reqUrl);
+   NSLog(@"-url---- %@",reqUrl);
    NSString *scheme = [url scheme];
 
    static NSString *endPayRedirectURL = nil;
