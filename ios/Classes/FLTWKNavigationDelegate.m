@@ -42,11 +42,11 @@
    }
 
    if ([reqUrl containsString:@"hair.orange1.com.cn"]) {
-       self.url = @"hair.orange1.com.cn";
+       self.url = @"www.hair.orange1.com.cn";
    }
 
    if ([reqUrl containsString:@"testhair.orange1.com.cn"]) {
-       self.url = @"testhair.orange1.com.cn";
+       self.url = @"www.testhair.orange1.com.cn";
    }
 
 
