@@ -33,35 +33,34 @@
 
    static NSString *endPayRedirectURL = nil;
    // H5微信支付完,跳回到APP
-   NSString *_attachUrl = @"";
    if ([reqUrl containsString:@"nidianme.com"]) {
-       _attachUrl = @"www.nidianme.com";
+       self.url = @"www.nidianme.com";
    }
 
    if ([reqUrl containsString:@"haodf.com"]) {
-      _attachUrl = @"www.haodf.com";
+       self.url = @"www.haodf.com";
    }
 
    if ([reqUrl containsString:@"hair.orange1.com.cn"]) {
-         _attachUrl = @"hair.orange1.com.cn";
+       self.url = @"hair.orange1.com.cn";
    }
 
    if ([reqUrl containsString:@"testhair.orange1.com.cn"]) {
-            _attachUrl = @"testhair.orange1.com.cn";
+       self.url = @"testhair.orange1.com.cn";
    }
 
 
 
-   if ([reqUrl hasPrefix:@"https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb"] && ![reqUrl hasSuffix:[NSString stringWithFormat:@"redirect_url=%@://",_attachUrl]]) {
+   if ([reqUrl hasPrefix:@"https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb"] && ![reqUrl hasSuffix:[NSString stringWithFormat:@"redirect_url=%@://",self.url]]) {
        decisionHandler(WKNavigationActionPolicyCancel);
 
        NSString *redirectUrl = nil;
        if ([reqUrl containsString:@"redirect_url="]) {
             NSRange redirectRange = [reqUrl rangeOfString:@"redirect_url"];
             endPayRedirectURL =  [reqUrl substringFromIndex:redirectRange.location+redirectRange.length+1];
-            redirectUrl = [[reqUrl substringToIndex:redirectRange.location] stringByAppendingString:[NSString stringWithFormat:@"redirect_url=%@://",_attachUrl]];
+            redirectUrl = [[reqUrl substringToIndex:redirectRange.location] stringByAppendingString:[NSString stringWithFormat:@"redirect_url=%@://",self.url]];
        }else {
-            redirectUrl = [reqUrl stringByAppendingString:[NSString stringWithFormat:@"&redirect_url=%@://",_attachUrl]];
+            redirectUrl = [reqUrl stringByAppendingString:[NSString stringWithFormat:@"&redirect_url=%@://",self.url]];
        }
        NSMutableURLRequest *newRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:redirectUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
        newRequest.allHTTPHeaderFields = navigationAction.request.allHTTPHeaderFields;

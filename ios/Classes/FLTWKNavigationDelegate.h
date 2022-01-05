@@ -5,6 +5,7 @@
 #import <Flutter/Flutter.h>
 #import <WebKit/WebKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FLTWKNavigationDelegate : NSObject <WKNavigationDelegate>
@@ -20,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
  * Whether to allow zoom functionality on the WebView.
  */
 @property(nonatomic, assign) BOOL shouldEnableZoom;
+
+
+@property (nonatomic, copy) NSString url;
 
 @end
 
