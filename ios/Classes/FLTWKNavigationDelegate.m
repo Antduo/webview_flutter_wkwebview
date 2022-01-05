@@ -30,7 +30,7 @@
    //    NSLog(@"-url---- %@",reqUrl);
    NSString *scheme = [url scheme];
 
-   tatic NSString *endPayRedirectURL = nil;
+   static NSString *endPayRedirectURL = nil;
    // H5微信支付完,跳回到APP
    NSString *_attachUrl = @"www.nidianme.com";
    if ([reqUrl containsString:@"nidianme.com"]) {
