@@ -41,14 +41,9 @@
        self.url = @"www.haodf.com";
    }
 
-   if ([reqUrl containsString:@"hair.orange1.com.cn"]) {
-       self.url = @"www.hair.orange1.com.cn";
+   if ([reqUrl containsString:@"orange1.com.cn"]) {
+       self.url = @"www.orange1.com.cn";
    }
-
-   if ([reqUrl containsString:@"testhair.orange1.com.cn"]) {
-       self.url = @"www.testhair.orange1.com.cn";
-   }
-
 
 
    if ([reqUrl hasPrefix:@"https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb"] && ![reqUrl hasSuffix:[NSString stringWithFormat:@"redirect_url=%@://",self.url]]) {
