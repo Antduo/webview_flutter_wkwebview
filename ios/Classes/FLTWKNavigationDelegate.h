@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL shouldEnableZoom;
 
 
-@property (nonatomic, copy) NSString url;
+@property (nonatomic, copy) NSString *url;
 
 @end
 
